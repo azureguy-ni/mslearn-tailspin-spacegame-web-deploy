@@ -6,7 +6,7 @@ variables:
   releaseBranchName: 'release'
 
 schedules:
-- cron: '0 17 * * *'
+- cron: '15 17 * * *'
   displayName: Deploy every day at 3 A.M.
   branches:
     include:
@@ -112,7 +112,8 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-18.04'
+      name: myAzure
+      #vmImage: 'ubuntu-18.04'
     environment: test
     variables:
     - group: 'Release'
